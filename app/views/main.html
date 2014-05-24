@@ -1,0 +1,31 @@
+<div class="header">
+  <h3 class="text-muted">Youtube Searcher</h3>
+</div>
+
+
+  <div class="">
+      <h1 class="text-center">YouTube Searcher</h1>
+      <p class="text-center">Search for YouTube videos by keyword</p>
+      <form ng-submit="searchYouTube(keyword)" class="text-center">
+        <input type="text" class="form-control" placeholder="Enter search terms.." name="keyword" ng-model="keyword" required><br>
+        <input type="submit" class="btn btn-primary btn-lg" value="Submit" id="submit">
+      </form>
+
+      <div class="results" ng-if="results">
+        <h2>We found {{ results.length }} results for {{ keyword }}</h2><br>
+        <div class="row">
+          <div class="col-sm-4"ng-repeat="result in results">
+            <div class="vendor">
+              <iframe ng-src="{{ trustSrc(embedUrl + result.id.videoId) }}" frameborder="0"></iframe>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="footer">
+  <p><span class="glyphicon glyphicon-heart"></span> By Abhi Aiyer</p>
+</div>
